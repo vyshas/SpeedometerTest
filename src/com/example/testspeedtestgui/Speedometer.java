@@ -3,7 +3,6 @@ package com.example.testspeedtestgui;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -20,18 +19,17 @@ import android.view.View;
 public final class Speedometer extends View{
     private final float SMOOTHING_VALUE = 10.0f;
     private Paint outerLogoPaint;
-    private Paint centerPaint,centerOuterPaint;
+    private Paint centerPaint;
     private Path outerLogo;
     private Path center;
     private Path outerLogoEdge;
-
 
     private Paint handPaint;
     private Path handPath;
 
     private float mSpeed;
     private float mNeedleAngle;
-    RectF rectOuter;
+
 
     int appBG;
 
@@ -51,12 +49,11 @@ public final class Speedometer extends View{
     }
 
     private void init(Context context) {
-
         if(Build.VERSION.SDK_INT >= 11){
             this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
         //appBG = context.getResources().getColor(R.color.appBackground);
-        // appBG = ContextCompat.getColor(context,R.color.appBackground);
+        appBG = ContextCompat.getColor(context,R.color.appBackground);
         initDrawingTools();
         mSpeed = 0f;
         mNeedleAngle = 0f;
@@ -90,33 +87,22 @@ public final class Speedometer extends View{
         RectF rect = new RectF();
 
         float angle = getSemicircle(0.115f,0.495f,0.885f,0.495f,rect);
+
         outerLogo = new Path();
         outerLogo.addArc(rect, angle, 180);
 
-        //Edge surrounding the upper part of the outer semi circle(Logo edge Init)
-        centerOuterPaint = new Paint();
-        centerOuterPaint.setAntiAlias(true);
-        centerOuterPaint.setColor(Color.BLUE);
-        centerOuterPaint.setStrokeCap(Paint.Cap.ROUND);
-        centerOuterPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        centerOuterPaint.setStrokeWidth(outerStrokeWidth);
-
-
+        //Edge surrounding the upper part of outer semi circle(Logo edge Init) Logo edge Init
         angle = getSemicircle(0.025f,0.5f,0.975f,0.5f,rect);
         outerLogoEdge = new Path();
-        outerLogoEdge.addArc(rect, angle, 180);
-
-        /* outerLogoEdge.moveTo(0.025f, 0.495f);
+        outerLogoEdge.moveTo(0.025f, 0.495f);
         outerLogoEdge.arcTo(rect, angle, 180);
         outerLogoEdge.moveTo(0.025f, 0.495f);
-        outerLogoEdge.lineTo(0.2f, 0.495f);*/
-
-        //Edge/border covering the lower part of outer semi circle
-        /*   angle = getSemicircle(0.20f,0.5f,0.80f,0.5f,rect);
-        Log.d("Speedometer","Angle:"+angle );
+        outerLogoEdge.lineTo(0.2f, 0.495f);
+        //Edge surrounding the lower part of outer semi circle(Logo edge Init) Logo edge Init
+        angle = getSemicircle(0.20f,0.5f,0.80f,0.5f,rect);
         outerLogoEdge.arcTo(rect, angle, 180);
         outerLogoEdge.moveTo(0.975f, 0.495f);
-        outerLogoEdge.lineTo(0.8f, 0.495f);*/
+        outerLogoEdge.lineTo(0.8f, 0.495f);
 
         ///Center init
         centerPaint = new Paint();
@@ -127,6 +113,8 @@ public final class Speedometer extends View{
         angle = getSemicircle(0.40f,0.5f,0.60f,0.5f,rect);
         center = new Path();
         center.addArc(rect, angle, 180);
+
+
 
         ///Hand Init
         handPaint = new Paint();
@@ -168,22 +156,11 @@ public final class Speedometer extends View{
 
     private void drawLogo(Canvas canvas) {
         canvas.save(Canvas.MATRIX_SAVE_FLAG);
-
-        //outer semi circle
         canvas.drawPath(outerLogo, outerLogoPaint);
-        //centerPaint.setStyle(Paint.Style.STROKE);
-
-        //inner semi circle
-        canvas.drawPath(center, centerPaint);
         centerPaint.setStyle(Paint.Style.FILL);
-
-
-        //edge surrounding the outer semi circle
-        canvas.drawPath(outerLogoEdge, centerOuterPaint);
-        centerOuterPaint.setStyle(Paint.Style.STROKE);
-
-
-        //canvas.drawArc(rectOuter, 180,180, false, centerPaint);
+        canvas.drawPath(center, centerPaint);
+        centerPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawPath(outerLogoEdge, centerPaint);
         canvas.restore();
     }
 
@@ -216,33 +193,14 @@ public final class Speedometer extends View{
 
 
     private void moveHand() {
-        // if we are near the current hand angle do nothing
 
-        if (mSpeed == 0) mSpeed = 0.01f;
-        float angle = (float)(60.7f * (Math.log10(mSpeed) + 1.55f));
-        if(angle > 179f) angle = 179.0f;
-        if(angle < 1f) angle = 1.0f;
-
-        if(Math.abs(mNeedleAngle - angle) > 0.7f) {
-            mNeedleAngle = (((SMOOTHING_VALUE - 1f) / SMOOTHING_VALUE) * mNeedleAngle) +
-                    ((1f / SMOOTHING_VALUE) * angle);
-        } else {
-            mNeedleAngle = angle;
-        }
-        // if we dont need to move dont invalidate the screen
-        if (! handNeedsToMove(angle)) {
-            return;
-        }
-
-        invalidate();
 
     }
 
     // this is called periodically form the tests at a high interval
     // target is a percentage
     public void setHandTarget(float Target) {
-        mSpeed = Target;
-        moveHand();
+
     }
 
     public float getSemicircle(float xStart, float yStart, float xEnd,
@@ -255,7 +213,9 @@ public final class Speedometer extends View{
         double yLen = (yEnd - yStart);
         float radius = (float) (Math.sqrt(xLen * xLen + yLen * yLen) / 2);
 
-        RectF oval = new RectF(centerX - radius,centerY - radius, centerX + radius,centerY + radius);
+        RectF oval = new RectF(centerX - radius,
+                centerY - radius, centerX + radius,
+                centerY + radius);
 
         ovalRectOUT.set(oval);
 
