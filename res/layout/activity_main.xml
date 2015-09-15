@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    
+    <!-- Include something like this if a specific background image (as well as colour) is required on this page.
+     Note that code will be required if images are to fit together across pages and some pages are disabled. 
+     <ImageView
+        android:id="@+id/speedometerBackgroundPic"
+        style="@style/BackgroundImage2" />
+-->
+    
+     <com.example.testspeedtestgui.Speedometer
+                        android:id="@+id/speedometer1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true" 
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" 
+                        />
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <dimen name="speedTestStatusTextSize">18sp</dimen>
+    <dimen name="speedTestStatusTextPadding">5dp</dimen>
+    <dimen name="speedTestGraphTextSize">10sp</dimen>
+    <dimen name="speedTestGraphLineThickness">2dp</dimen>
+    <dimen name="historyListTextSize">14sp</dimen>
+    <dimen name="historyListTextPadding">10dp</dimen>
+    <dimen name="faulreportlistitemTextSize">14sp</dimen>
+     <dimen name="faulreportListItemLayoutpadding">1dp</dimen>
+     <dimen name="faultReportCommentsTextViewsize">14sp</dimen>
+     <dimen name="ui_fragment_connectiontrLayoutpadding">2dp</dimen>
+     <dimen name="faultreportheaderquestionsTextViewsize">14sp</dimen>
+     
+<item name="speedometer_outerBorderStrokeWidth" type="dimen" format="float">0.02</item>
+<item name ="speedometer_innerBorderStrokeWidth"  type="dimen" format="float">0.164</item>
+     
+     
+</resources>

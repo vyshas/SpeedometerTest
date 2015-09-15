@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<color name="appBackground">#CC0000</color>
+	
+	
+	<!--
+	************
+	 DataUsage Fragment Colours
+	*********** -->
+	<!-- DataLimit Mobile graph area colour -->
+	<color name ="datausagefragment_Mobile_UnderlineColour">#AAf4a712</color>
+	<!-- DataLimit Mobile graph area colour when data limit is 100% -->
+	<color name ="datausagefragment_Mobile_dataLimitFullUnderLineColour">#ff0000</color>
+	<!-- transparent -->
+	<color name ="datausagefragment_Wifi_UnderlineColour">#00000000</color>
+	<!-- threshold line and total data usage point colour(dots)-->
+	<color name="datausagefragment_XYChartSeries_backgroundColour">#FF3300</color> 
+	<!-- total data usage graph area colour-->
+	<color name="datausagefragment_GraphArea">#FFFFFF</color>
+	<color name="datausagefragment_Graph_AxesColour">#FFFFFF</color>
+	<color name="datausagefragment_Graph_LabelsColour">#FFFFFF</color>
+	
+   	
+   	<!--
+   	*****************
+   	 Tabs/Fragments
+   	******************* -->
+   	<color name="tabactiveColour">#faaa1e</color>
+	<color name="tabBackground">#ff0000</color>
+	<color name="tabInactiveColour">#FFFFFF</color>
+	
+	
+	<!-- 
+	**********
+	FaultReport/Feedback
+	***********
+	 -->
+	<color name="faultreportfragment_list_textcolor">#faaa1e</color>
+	<color name="faultreportfragment_list_panelcolor">#ff0000</color>
+	<color name="faultreportfragment_list_child_bgcolor">#CC0000</color>
+	<color name="faultreportfragment_divider_group">#10ffffff</color>
+	<color name="faultreportfragment_divider_child">#10ffffff</color>
+	<!-- 
+	*************
+	Speedometer
+	************
+	 --> 
+	<color name="Speedometer_LeftHandSide">#e7e3e3</color>
+	<color name="Speedometer_RightHandSide">#ff6969</color>
+	<color name="Speedometer_CenterPaintColor">#ff6969</color>
+	<color name="Speedometer_handPaintColor">#faaa1e</color>
+	
+	<!-- 
+	*************
+	SpeedTest/RunTest
+	*************
+	-->
+	<color name="SpeedTestGraph_LineColour">#FFFFFF</color>
+	<color name="SpeedTestGraph_TextColour">#FFFFFF</color>
+	<color name="SpeedTestGraph_Background">#ff0000</color>
+	<color name="SpeedTest_Graph_ping_network_panel">#ff0000</color>
+	
+	<!--
+	**************
+	History/Archived Results
+	***************
+	 -->
+	 <color name="history_list_adapter_background">#ff0000</color>
+	 
+	<!--
+	****************
+	ConnectionStatus
+	**************** 
+	 -->
+	<color name="ConnectionStatusPanel">#ff0000</color>
+	
+	<!-- 
+	*********************
+	Common Colours/Generic Colours
+	*********************
+	 -->
+	 <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="Red">#FF0000</color>
+    <color name="Green">#008000</color>
+    <color name="Blue">#0000FF</color>
+    <color name="Yellow">#FFFF00</color>
+    <color name="Teal">#008080</color>
+    <color name="Orange">#FFA500</color>
+    
+    <!-- Text colour -->
+    <color name="DefaultTextColor">#FFFFFF</color>
+    <color name="ColouredTextColor">#faaa1e</color>
+    
+      
+       	 
+</resources>
