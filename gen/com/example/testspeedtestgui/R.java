@@ -1952,6 +1952,15 @@ containing a value of this type.
  Default text size for action bar title.
          */
         public static final int abc_text_size_title_material_toolbar=0x7f070027;
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+         */
+        public static final int activity_horizontal_margin=0x7f070055;
+        public static final int activity_vertical_margin=0x7f070056;
         /**  The platform's desired fixed height for a dialog along the major axis
          (the screen is in portrait). This may be either a fraction or a dimension.
  The platform's desired fixed height for a dialog along the major axis
@@ -2097,6 +2106,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09003b;
         public static final int action_mode_bar_stub=0x7f09003a;
         public static final int action_mode_close_button=0x7f090023;
+        public static final int action_settings=0x7f09005b;
         public static final int activity_chooser_view_content=0x7f090024;
         public static final int alertTitle=0x7f09002e;
         public static final int always=0x7f090019;
@@ -2154,7 +2164,6 @@ containing a value of this type.
         public static final int showCustom=0x7f090010;
         public static final int showHome=0x7f090011;
         public static final int showTitle=0x7f090012;
-        public static final int speedometer1=0x7f09004d;
         public static final int split_action_bar=0x7f090004;
         public static final int src_atop=0x7f090016;
         public static final int src_in=0x7f090017;
@@ -2162,6 +2171,7 @@ containing a value of this type.
         public static final int status_bar_latest_event_content=0x7f090050;
         public static final int submit_area=0x7f090049;
         public static final int tabMode=0x7f09000c;
+        public static final int testView1=0x7f09004d;
         public static final int text=0x7f090058;
         public static final int text2=0x7f090056;
         public static final int textSpacerNoButtons=0x7f090031;
@@ -2250,6 +2260,9 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f030024;
         public static final int support_simple_spinner_dropdown_item=0x7f030025;
     }
+    public static final class menu {
+        public static final int main_activity2=0x7f0c0000;
+    }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -2310,6 +2323,7 @@ containing a value of this type.
         /**  Content description for the Toolbar icon used to collapse an expanded action mode. [CHAR LIMIT=NONE] 
          */
         public static final int abc_toolbar_collapse_description=0x7f0a0004;
+        public static final int action_settings=0x7f0a0015;
         public static final int app_name=0x7f0a0012;
         public static final int hello_world=0x7f0a0013;
         /**  Text to use when the number in a notification info is too large
@@ -2319,6 +2333,8 @@ containing a value of this type.
          [CHAR LIMIT=4] 
          */
         public static final int status_bar_notification_info_overflow=0x7f0a0011;
+        public static final int title_activity_main_activity2=0x7f0a0014;
+        public static final int title_activity_main_activity_two=0x7f0a0016;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0b0041;

@@ -3,6 +3,7 @@ package com.example.testspeedtestgui;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -19,7 +20,7 @@ import android.view.View;
 public final class Speedometer extends View{
     private final float SMOOTHING_VALUE = 10.0f;
     private Paint outerLogoPaint;
-    private Paint centerPaint;
+    private Paint centerPaint ,centerOuterPaint;
     private Path outerLogo;
     private Path center;
     private Path outerLogoEdge;
@@ -92,6 +93,15 @@ public final class Speedometer extends View{
         outerLogo.addArc(rect, angle, 180);
 
         //Edge surrounding the upper part of outer semi circle(Logo edge Init) Logo edge Init
+        //new paint stuffs
+        float strokeWidth=0.1f;
+        centerOuterPaint=new Paint();
+        centerOuterPaint.setAntiAlias(true);
+        centerOuterPaint.setColor(Color.BLUE);
+        centerOuterPaint.setStrokeWidth(strokeWidth);
+        centerOuterPaint.setStrokeCap(Paint.Cap.ROUND);
+        centerOuterPaint.setStyle(Paint.Style.STROKE);
+
         angle = getSemicircle(0.025f,0.5f,0.975f,0.5f,rect);
         outerLogoEdge = new Path();
         outerLogoEdge.moveTo(0.025f, 0.495f);
@@ -155,12 +165,19 @@ public final class Speedometer extends View{
     }
 
     private void drawLogo(Canvas canvas) {
+
         canvas.save(Canvas.MATRIX_SAVE_FLAG);
+
+        canvas.drawPath(outerLogoEdge, centerOuterPaint);
+        // centerPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(outerLogo, outerLogoPaint);
         centerPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(center, centerPaint);
         centerPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawPath(outerLogoEdge, centerPaint);
+
+        //  canvas.drawPath(outerLogoEdge, centerOuterPaint);
+
+
         canvas.restore();
     }
 
