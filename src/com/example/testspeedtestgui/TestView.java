@@ -41,7 +41,8 @@ public class TestView extends View {
 
     private void initDrawingTools() {
 
-        float strokeWidth=0.0f;
+        //this stroke width is causing issue
+        float strokeWidth=0.01f;
         centerOuterPaint=new Paint();
         centerOuterPaint.setAntiAlias(true);
         centerOuterPaint.setColor(Color.BLUE);
